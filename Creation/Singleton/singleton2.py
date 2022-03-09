@@ -1,7 +1,8 @@
-from re import T
+"""
+Utilizando o Singleton como uma função decoradora. 
+"""
 
 
-# Cria um decorador que permite perpetuar uma alteração de uma instância para outras instâncias:
 def singleton(the_class):
     instances = {}
 
@@ -34,7 +35,7 @@ if __name__ == '__main__':
     as1 = AppSettings()
     as2 = AppSettings()
 
-    as1.tema = 'Tema Claro'  # Ao alterar o tema da instância as1 ela se extende para a instância as2.
+    as1.tema = 'Tema Claro'
 
     print(as1.tema)
     print(as2.tema)

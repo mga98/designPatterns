@@ -1,2 +1,2 @@
 # designPatterns
- Estudos sobre Design Patterns (GoF)
+ Estudos sobre Design Patterns (GoF e mais).
