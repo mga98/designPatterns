@@ -1,3 +1,9 @@
+"""
+Na programação POO, o termo factory (fábrica) refere-se a uma classe ou método
+que é responsável por criar objetos.
+"""
+
+
 from abc import ABC, abstractmethod
 from random import choice
 
