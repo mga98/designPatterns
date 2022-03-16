@@ -23,6 +23,14 @@ class VeiculoLuxo(ABC):
     def buscarCliente(self) -> None: pass
 
 
+### Carros de luxo ####
+
+
+class CarroLuxoZL(VeiculoLuxo):
+    def buscarCliente(self) -> None:
+        print('Carro de luxo ZL está buscando cliente...')
+
+
 class CarroLuxoZN(VeiculoLuxo):
     def buscarCliente(self) -> None:
         print('Carro de luxo ZN está buscando cliente...')
@@ -33,6 +41,14 @@ class CarroLuxoZS(VeiculoLuxo):
         print('Carro de luxo ZS está buscando cliente...')
 
 
+### Carros populares ###
+
+
+class CarroPopularZL(VeiculoPopular):
+    def buscarCliente(self) -> None:
+        print('Carro popular ZL está buscando o cliente...')
+
+
 class CarroPopularZN(VeiculoPopular):
     def buscarCliente(self) -> None:
         print('Carro popular ZN está buscando o cliente...')
@@ -41,6 +57,14 @@ class CarroPopularZN(VeiculoPopular):
 class CarroPopularZS(VeiculoPopular):
     def buscarCliente(self) -> None:
         print('Carro popular ZS está buscando o cliente...')
+
+
+### Motos ###
+
+
+class MotoZL(VeiculoPopular):
+    def buscarCliente(self) -> None:
+        print('Moto ZL está buscando o cliente...')
 
 
 class MotoZN(VeiculoPopular):
@@ -95,6 +119,20 @@ class ZonaSulFactory(VeiculoFactory):
         return MotoZS()
 
 
+class ZonaLesteFacotry(VeiculoFactory):
+    @staticmethod
+    def get_carro_popular() -> VeiculoPopular:
+        return CarroPopularZL()
+    
+    @staticmethod
+    def get_carro_luxo() -> VeiculoLuxo:
+        return CarroPopularZL()
+    
+    @staticmethod
+    def get_moto() -> VeiculoPopular:
+        return MotoZL
+
+
 class Cliente:
     def app_zonaNorte(self) -> None:
         appNorte = ZonaNorteFactory()
@@ -117,6 +155,12 @@ class Cliente:
         moto = appSul.get_moto()
         moto.buscarCliente()
 
+    def app_zonaLeste(self) -> None:
+        appLeste = ZonaLesteFacotry()
+
+        carro_popular = appLeste.get_carro_popular()
+        carro_popular.buscarCliente()
+
 
 if __name__ == '__main__':
     cliente = Cliente()
@@ -135,4 +179,11 @@ if __name__ == '__main__':
     print('=' * 50)
     cliente.app_zonaNorte()
     
-    print('-' * 50)
+    print('=' * 50)
+
+    titulo3 = 'ZONA LESTE'
+    print(titulo3.center(50))
+    print('=' * 50)
+    cliente.app_zonaLeste()
+
+    print('=' * 50)
